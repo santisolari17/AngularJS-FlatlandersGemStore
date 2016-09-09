@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<title>Flatlanders Gem Store</title>
+</head>
+<body ng-app="gemStore">
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="navbar navbar-inverse">
+					<a href="#" class="navbar-brand">Flatlanders Gem Store</a>
+				</div>
+			</div>
+		</div>
+		<div class="row" ng-controller="storeController as store">
+			<div class="col-lg-6">
+				<table class="table table-stripped">
+					<th>Gem Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>buy</th>
+					<tbody>
+						<tr ng-repeat="productRow in store.products" ng-hide="productRow.soldOut">
+							<td>{{ productRow.name }}</td>
+							<td>{{ productRow.description }}</td>
+							<td>{{ productRow.price }}</td>
+							<td><buton class="btn btn-default" ng-show="productRow.canPurchase">buy</buton></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+<script src="node_modules/systemjs/dist/system.js"></script>
+<script src="app/config.js"></script>
+<script>
+	System
+		.import('app:boot')
+		.catch( console.error.bind(console) ); // make sure any errors print to console
+</script>
+</body>
+</html>
