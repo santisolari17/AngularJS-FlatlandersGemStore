@@ -16,23 +16,51 @@
 			</div>
 		</div>
 		<div class="row" ng-controller="storeController as store">
-			<div class="col-lg-6">
+			<div class="col-lg-12">
 				<table class="table table-stripped">
+					<th>Images</th>
 					<th>Gem Name</th>
-					<th>Description</th>
 					<th>Price</th>
+					<th>More</th>
 					<th>buy</th>
 					<tbody>
 						<tr ng-repeat="productRow in store.products" ng-hide="productRow.soldOut">
+							<td>
+								<div class="panel panel-primary" ng-controller="galleryController as gallery">
+									<div class="panel-heading">{{ productRow.name}} Gallery</div>
+									<div class="panel-body">
+										<center><img ng-src="{{ productRow.images[gallery.current] }}" alt=""></center>
+									</div>
+									<div class="panel-footer">
+										<li class="thumbnail" ng-repeat="image in productRow.images">
+											<img ng-src="{{image}}" height="50" width="50" /> <center><button class="btn btn-xs btn-default" ng-click="gallery.setCurrent($index)">view</button></center>
+										</li>
+									</div>
+								</div>
+							</td>
 							<td>{{ productRow.name }}</td>
-							<td>{{ productRow.description }}</td>
 							<td>{{ productRow.price }}</td>
-							<td><buton class="btn btn-default" ng-show="productRow.canPurchase">buy</buton></td>
+							<td ng-controller="panelController as panel">
+								<ul class="nav nav-pills">
+									<li ng-class="{ active: panel.isSelected(1) }" role="presentation"><a href="" ng-click="panel.selectTab(1)">Description</a></li>
+									<li ng-class="{ active: panel.isSelected(2) }" role="presentation"><a href="" ng-click="panel.selectTab(2)">Specs</a></li>
+									<li ng-class="{ active: panel.isSelected(3) }" role="presentation"><a href="" ng-click="panel.selectTab(3)">Reviews</a></li>
+								</ul>
+								<div class="panel" ng-show="panel.isSelected(1)">
+									<p>{{productRow.description}}</p>
+								</div>
+								<div class="panel" ng-show="panel.isSelected(2)">
+									<p>{{ "Shine: " + productRow.shine}}</p>
+								</div>
+								<div class="panel" ng-show="panel.isSelected(3)">
+									<p>NULL</p>
+								</div>
+							</td>
+							<td><button class="btn btn-default" ng-show="productRow.canPurchase"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Buy</button></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-		</div>
 	</div>
 
 <script src="node_modules/systemjs/dist/system.js"></script>
