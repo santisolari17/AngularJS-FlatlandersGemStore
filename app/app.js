@@ -102,12 +102,58 @@
 
 	 });
 
-	 app.controller('galleryController', function () {
-		this.current = 0;
-		this.setCurrent = function(value){
-			this.current = value || 0;
-		}
-	 });
+	 //app.controller('galleryController', function () {
+		//this.current = 0;
+		//this.setCurrent = function(value){
+			//this.current = value || 0;
+		//}
+	 //});
 
+	app.controller('reviewController', function(){
+		this.review = {};
+		this.addReview = function (product){
+			//this.review = {'createdOn': Date.now()}; This line of code re-writes the array, yet it lets you pass the angularjs challenge 3.11
+			this.review.createdOn = Date.now();
+			product.reviews.push(this.review);
+			this.review = {};
+		};
+	});
+
+	app.directive('productDescription',function (){
+		return {
+			restrict: 'E',
+			templateUrl: 'product-description.html'
+		};
+
+	});
+
+	app.directive('reviewPreview',function (){
+		return {
+			restrict: 'E',
+			templateUrl: 'review-preview.html'
+		};
+
+	});
+
+	app.directive('productSpecs', function(){
+		return{
+			restrict: 'A',
+			templateUrl: 'product-specs.html'
+		};
+	})
+
+	app.directive('productGallery', function(){
+		return{
+			restrict: 'E',
+			templateUrl: 'product-gallery.html',
+			controller: function(){
+				this.current = 0;
+				this.setCurrent = function(value){
+					this.current = value || 0;
+				}
+			},
+			controllerAs: 'gallery'
+		};
+	});
 
 })();
