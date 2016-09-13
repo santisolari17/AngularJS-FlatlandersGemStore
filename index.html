@@ -23,12 +23,17 @@
 		<md-list>
 
 			<md-list-item>
-			  <p>List of Gems!</p>
+				<md-input-container flex>
+					<label>Search gem</label>
+					<input type="text"></input>
+					<md-icon aria-label="right" class="material-icons">search</md-icon>
+				</md-input-container>
 			</md-list-item>
 
 			<md-list-item ng-repeat="productRow in store.products">
 				<md-button ng-click="store.select(productRow)" layout-fill style="text-align:left">
-					<md-icon aria-label="right" class="material-icons">chevron_right</md-icon>
+					<!--<md-icon aria-label="right" class="material-icons">chevron_right</md-icon> -->
+					<md-icon md-svg-src="app/images/cubeitem.svg" class="avatar"></md-icon>
 					{{ productRow.name }}
 				</md-button>
 				<!--<md-divider ng-if="!$last"></md-divider>
@@ -42,7 +47,7 @@
 		<md-content flex id="content">
 
 			<div layout="row" layout-wrap>
-				<div flex="50" flex-md="100" flex-sm="100" flex-xs="100" layout-padding layout-margin>
+				<div flex="40" flex-md="100" flex-sm="100" flex-xs="100" layout-padding layout-margin>
 					<md-card md-theme-watch>
 						<md-card-title>
 							<md-card-title-text>
@@ -54,10 +59,31 @@
 							</md-card-title-media>
 						</md-card-title>
 						<md-card-actions layout="row" layout-align="end center">
-							<md-button>Action 1</md-button>
-							<md-button>Action 2</md-button>
+							<md-tabs md-dynamic-height md-border-bottom layout-marging layout-padding flex>
+								<md-tab label="Specs">
+									<md-content class="md-padding">
+										<h1 class="md-display-2">Specs</h1>
+										<p>Tab 1 Content</p>
+									</md-content>
+								</md-tab>
+								<md-tab label="Gallery">
+									<md-content class="md-padding">
+										<h1 class="md-display-2">Gallery</h1>
+										<p>Tab 2 Content</p>
+									</md-content>
+								</md-tab>
+								<md-tab label="three">
+									<md-content class="md-padding">
+										<h1 class="md-display-2">Tab Three</h1>
+										<p>Tab 3 Content</p>
+									</md-content>
+								</md-tab>
+							</md-tabs>
 						</md-card-actions>
 					</md-card>
+				</div flex="40" flex-md="100" flex-sm="100" flex-xs="100" layout-padding layout-margin>
+				<div>
+			
 				</div>
 			</div>
 
