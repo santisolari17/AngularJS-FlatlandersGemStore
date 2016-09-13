@@ -2,7 +2,8 @@
 
 	 var app = angular.module('gemStore', [
 	 	'store-directives',
-	 	'store-controllers'
+	 	'store-controllers',
+	 	'ngMaterial'
 	 	]);
 
 })();
