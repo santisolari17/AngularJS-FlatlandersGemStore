@@ -6,4 +6,11 @@
 	 	'ngMaterial'
 	 	]);
 
+	app.config(($mdThemingProvider) => {
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('deep-orange')
+      .accentPalette('red');
+  })
+
 })();

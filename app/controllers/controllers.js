@@ -2,12 +2,21 @@
 
 	var app = angular.module('store-controllers',[]);
 
-	 app.controller('storeController',['$http',function ($http) {
+	 app.controller('storeController',['$http','$mdSidenav',function ($http,$mdSidenav) {
  	 	//this.products = gems;
- 	 	var store = this;
+ 	 	var self = this;
  	 	$http.get('../AngularJS-FlatlandersGemStore/store-products.json').success(function(data){
- 	 		store.products = data;
+ 	 		self.products = data;
  	 	});
+
+ 	 	self.select = function(value){
+ 	 		self.selected = value;
+ 	 	};
+
+		self.toggleSideNav = function() {
+			$mdSidenav('leftSidenav').toggle();
+		}
+
 	 }]);
 
 	 app.controller('panelController',function () {
