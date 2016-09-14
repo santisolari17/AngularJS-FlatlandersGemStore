@@ -5,7 +5,7 @@
     "shine": 8,
     "price": 110.50,
     "rarity": 7,
-    "color": "#CCC",
+    "color": "#FCDF7C",
     "faces": 14,
     "canPurchase": true,
     "images": [
@@ -31,7 +31,7 @@
     "shine": 9,
     "price": 22.90,
     "rarity": 6,
-    "color": "#EEE",
+    "color": "#EE4036",
     "faces": 12,
     "canPurchase": true,
     "images": [
@@ -57,9 +57,9 @@
     "shine": 70,
     "price": 1100,
     "rarity": 2,
-    "color": "#000",
+    "color": "#EC297B",
     "faces": 6,
-    "canPurchase": true,
+    "canPurchase": false,
     "images": [
       "app/images/gem-06.gif",
       "app/images/gem-07.gif",

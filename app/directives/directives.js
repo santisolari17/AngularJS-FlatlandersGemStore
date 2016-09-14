@@ -3,10 +3,10 @@
 	var app = angular.module('store-directives',[]);
 
 	app.directive('productDescription',function (){
-	return {
-		restrict: 'E',
-		templateUrl: 'app/directives/directivesTemplates/product-description.html'
-	};
+		return {
+			restrict: 'E',
+			templateUrl: 'app/directives/directivesTemplates/product-description.html'
+		};
 
 	});
 
@@ -23,7 +23,7 @@
 			restrict: 'A',
 			templateUrl: 'app/directives/directivesTemplates/product-specs.html'
 		};
-	})
+	});
 
 	app.directive('productGallery', function(){
 		return{

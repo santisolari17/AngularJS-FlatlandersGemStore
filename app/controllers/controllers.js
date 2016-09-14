@@ -17,6 +17,11 @@
 			$mdSidenav('leftSidenav').toggle();
 		}
 
+		self.currentImg = 0;
+		self.setCurrentImg = function(value){
+			self.currentImg = value || 0;
+		}
+
 	 }]);
 
 	 app.controller('panelController',function () {
